@@ -1,0 +1,20 @@
+.pageList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageList .active {
+  color: red;
+}
+.pageList > li {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 5px;
+  display: inline-block;
+  cursor: pointer;
+}

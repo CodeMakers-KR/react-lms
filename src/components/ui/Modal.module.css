@@ -1,0 +1,51 @@
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000d;
+  z-index: 10000;
+}
+
+.alert {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 80%;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.alert > .title {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background-color: #f3f3f3;
+  padding: 10px;
+}
+.alert > .content {
+  padding: 10px;
+}
+.alert > .buttonGroup {
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.alert::backdrop {
+  opacity: 0.7;
+  background-color: #000;
+}

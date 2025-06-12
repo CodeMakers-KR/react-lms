@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #747474 white; /* 검은색 Thumb 와 흰색 Track */
+}
+::-webkit-scrollbar {
+  width: 3px;  /* 세로축 스크롤바 폭 너비 */
+  height: 3px;  /* 가로축 스크롤바 폭 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #747474; /* 스크롤바 막대 색상 */
+}
+
+#root {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vertical-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-list {
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 100px;
+  overflow: hidden;
+  height: 350px;
+  box-shadow: 0 0 10px #ddd;
+}
+
+.card .card-img {
+  width: 100%;
+}
+.card .card-desc {
+  position: absolute;
+  height: 95%;
+  background-color: #fff;
+  margin-right: 10px;
+  transition: top 0.3s ease-in-out;
+}
+
+.card:hover {
+  .card-desc {
+    top: 10px !important;
+    overflow: auto;
+  }
+  .ellipsis {
+    overflow: visible;
+    display: block;
+  }
+}
+.card .card-content {
+  height: 100%;
+}
+
+.card .card-title {
+  margin: 5px 0;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

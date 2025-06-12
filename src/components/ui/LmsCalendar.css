@@ -1,0 +1,24 @@
+.fc .fc-bg-event {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.custom-holiday {
+  border: 0;
+  background-color: transparent;
+  opacity: 0.8;
+  font-style: italic;
+}
+.custom-holiday .fc-event-title {
+  color: red;
+  margin: 0 0.5em 0.5em 0.5em;
+}
+/* 일요일 날짜: 빨간색 */
+.fc-day-sun a {
+  color: red;
+}
+
+/* 토요일 날짜: 파란색 */
+.fc-day-sat a {
+  color: blue;
+}
