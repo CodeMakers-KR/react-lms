@@ -1,24 +1,16 @@
 body {
   margin: 0;
   color: #333;
+  background-color: #e9e9e9;
+  overflow: hidden;
 }
 
 * {
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: #747474 white; /* 검은색 Thumb 와 흰색 Track */
-}
-::-webkit-scrollbar {
-  width: 3px;  /* 세로축 스크롤바 폭 너비 */
-  height: 3px;  /* 가로축 스크롤바 폭 너비 */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #747474; /* 스크롤바 막대 색상 */
 }
 
 #root {
-  width: 90vw;
+  width: 100vw;
   margin: 0 auto;
 }
 
@@ -27,6 +19,11 @@ a {
   color: inherit;
   cursor: pointer;
   outline: none;
+}
+
+a.active {
+  color: #eb3d3d;
+  font-weight: 800;
 }
 
 .list {

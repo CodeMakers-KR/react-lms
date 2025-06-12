@@ -24,7 +24,8 @@ const temporaryEvents = [
 ];
 
 export const LmsCalendar = ({
-  height = "100vh",
+  height = "100%",
+  width = "100%",
   initialView = "dayGridMonth",
   viewHoliday = true,
   viewWeekend = true,
@@ -65,7 +66,7 @@ export const LmsCalendar = ({
   }, [eventFetch]);
 
   return (
-    <>
+    <div style={{ width, height }}>
       <FullCalendar
         height={height}
         dayMaxEventRows={9}
@@ -84,6 +85,6 @@ export const LmsCalendar = ({
           return stillEvent.display == "background";
         }}
       />
-    </>
+    </div>
   );
 };

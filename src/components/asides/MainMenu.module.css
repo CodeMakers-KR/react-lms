@@ -1,0 +1,8 @@
+.mainMenu {
+  flex-basis: 220px;
+  flex-shrink: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 2rem;
+  overflow: auto;
+}
