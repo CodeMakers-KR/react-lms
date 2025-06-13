@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const apiKey = "AIzaSyBQ9g6K-gQ4Zga9Z6wCfKS0OKTpnwIiMqs";
-const calendarId = "ko.south_korea%23holiday%40group.v.calendar.google.com";
+const apiKey = "apiKey";
+const calendarId = "calendarID";
 
 export const useHoliday = (isLoadHoliday, rangeStart, rangeEnd) => {
   const [holidays, setHolidays] = useState([]);
