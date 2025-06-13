@@ -2,6 +2,8 @@ import { useImperativeHandle, useRef, useState } from "react";
 import styles from "./Modal.module.css";
 import { createPortal } from "react-dom";
 import { Button } from "./input/Input";
+import { IconButton } from "./input/IconButton";
+import { icons } from "./input/icons";
 
 export const Alert = ({
   ref,
@@ -10,6 +12,8 @@ export const Alert = ({
   draggable = false,
   children,
   buttonText = "OK",
+  buttonIcon = icons.close,
+  modalStyle = {},
   onBeforeLoad = () => {},
   onClickOk = () => {},
 }) => {
@@ -83,13 +87,13 @@ export const Alert = ({
         onMouseLeave={mouseUpHandler}
       >
         <div className={styles.title}>{title}</div>
-        <div className={styles.content}>{children ?? content}</div>
+        <div className={styles.content} style={modalStyle}>
+          {children ?? content}
+        </div>
         <div className={styles.buttonGroup}>
-          <Button
-            text={buttonText}
-            className="positive"
-            onClick={clickHandler}
-          />
+          <IconButton icon={buttonIcon} onClick={clickHandler}>
+            {buttonText}
+          </IconButton>
         </div>
       </div>
     </div>,

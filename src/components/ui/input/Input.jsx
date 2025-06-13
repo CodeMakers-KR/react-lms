@@ -116,6 +116,7 @@ export const Radio = ({
 };
 export const TextField = ({
   ref,
+  type = "text",
   id,
   className,
   name,
@@ -123,24 +124,30 @@ export const TextField = ({
   value,
   onChange = () => {},
   labelText,
+  style = {},
 }) => {
   return (
-    <>
-      {labelText && <label htmlFor={id}>{labelText}</label>}
+    <span style={{ position: "relative" }}>
       <input
-        type="text"
+        type={type}
         className={`${className} ${styles.text}`}
-        id={id}
+        style={style}
+        id={`${id}sddsadfkjasdf`}
         data-id={id}
         data-name={name}
         data-input-type="text"
         ref={ref}
-        name={name}
+        name={`${name}sadfkjasdf`}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
-    </>
+      {labelText && (
+        <label className={styles.text} htmlFor={id}>
+          {labelText}
+        </label>
+      )}
+    </span>
   );
 };
 

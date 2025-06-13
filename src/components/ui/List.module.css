@@ -25,7 +25,7 @@
   margin: 0.125rem 0;
   font-weight: 400;
   color: #ccc;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .foldableList > .foldableListItem {
@@ -36,6 +36,10 @@
   left: -3px;
 }
 
+.foldableList .foldableListItem > a {
+  font-size: 0.95rem;
+}
+
 .foldableList > .foldableListItem > li > .foldableListItemTitle {
   display: flex;
   align-items: center;
@@ -44,7 +48,7 @@
 
 .foldableList > .foldableListItem > li > .foldableListItemTitle > h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding-top: 2px;
 }
 

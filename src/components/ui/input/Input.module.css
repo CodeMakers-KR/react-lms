@@ -114,3 +114,31 @@
 .button:active {
   opacity: 0.9;
 }
+
+input.text {
+  display: block;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 1rem;
+  align-self: center;
+}
+input.text::placeholder {
+  color: transparent;
+}
+input.text + label.text {
+  position: absolute;
+  top: 17px;
+  left: 9px;
+  padding: 0 10px;
+  display: inline-block;
+  align-self: center;
+  color: #999;
+  font-weight: 600;
+  background-color: #fff;
+  transition: 0.2s ease all;
+}
+input.text:not(:placeholder-shown) + label.text,
+input.text:focus + label.text {
+  top: -7px;
+}
