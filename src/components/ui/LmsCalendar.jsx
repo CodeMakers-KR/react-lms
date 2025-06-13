@@ -24,8 +24,8 @@ const temporaryEvents = [
 ];
 
 export const LmsCalendar = ({
-  height = "100%",
-  width = "100%",
+  height = "auto",
+  width = "auto",
   initialView = "dayGridMonth",
   viewHoliday = true,
   viewWeekend = true,

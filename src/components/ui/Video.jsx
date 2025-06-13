@@ -30,7 +30,7 @@ export const Video = ({
   uploadTime,
   tags = [],
   cc,
-  width = "70%",
+  width = "100%",
 }) => {
   const wrapperRef = useRef();
   const videoRef = useRef();

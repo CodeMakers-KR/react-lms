@@ -46,7 +46,7 @@ const SampleDashboard = () => {
     <>
       <div>
         <Section title="Sample Calendar">
-          <LmsCalendar height="500px" viewHoliday={true} />
+          <LmsCalendar height="auto" viewHoliday={true} />
         </Section>
         <Section title="Sample Video">
           <Video

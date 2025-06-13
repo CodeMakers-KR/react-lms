@@ -14,6 +14,7 @@ export const Alert = ({
   buttonText = "OK",
   buttonIcon = icons.close,
   modalStyle = {},
+  appendButtons = [],
   onBeforeLoad = () => {},
   onClickOk = () => {},
 }) => {
@@ -91,6 +92,7 @@ export const Alert = ({
           {children ?? content}
         </div>
         <div className={styles.buttonGroup}>
+          {appendButtons}
           <IconButton icon={buttonIcon} onClick={clickHandler}>
             {buttonText}
           </IconButton>
@@ -109,6 +111,7 @@ export const Confirm = ({
   children,
   positiveButtonText = "Ok",
   negativeButtonText = "Cancel",
+  confirmStyle = {},
   onBeforeLoad = () => {},
   onClickPositive = () => {},
   onClickNegative = () => {},
@@ -190,18 +193,24 @@ export const Confirm = ({
         onMouseLeave={mouseUpHandler}
       >
         <div className={styles.title}>{title}</div>
-        <div className={styles.content}>{children ?? content}</div>
+        <div className={styles.content} style={confirmStyle}>
+          {children ?? content}
+        </div>
         <div className={styles.buttonGroup}>
-          <Button
-            text={positiveButtonText}
-            className="positive"
+          <IconButton
+            icon={icons.ok}
+            iconSize={14}
             onClick={clickPositiveHandler}
-          />
-          <Button
-            text={negativeButtonText}
-            className="negative"
+          >
+            {positiveButtonText}
+          </IconButton>
+          <IconButton
+            icon={icons.close}
+            iconSize={14}
             onClick={clickNegativeHandler}
-          />
+          >
+            {negativeButtonText}
+          </IconButton>
         </div>
       </div>
     </div>,
