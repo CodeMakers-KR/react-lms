@@ -1,5 +1,4 @@
 import { title } from "../../utils/window";
-import { ContentHeader } from "../header/ContentHeader";
 import { Section } from "../Section";
 
 const Dashboard = () => {
@@ -7,7 +6,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <ContentHeader />
       <Section title="Main Dashboard">
         <div>dsfadsf</div>
       </Section>

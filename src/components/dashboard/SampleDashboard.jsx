@@ -14,7 +14,6 @@ import { Paginator } from "../ui/Paginator.jsx";
 import { Video } from "../ui/Video.jsx";
 import { title } from "../../utils/window.js";
 import { LmsCalendar } from "../ui/LmsCalendar.jsx";
-import { ContentHeader } from "../header/ContentHeader.jsx";
 import { Section } from "../Section.jsx";
 import { IconButton } from "../ui/input/IconButton.jsx";
 import { icons } from "../ui/input/icons.js";
@@ -45,7 +44,6 @@ const SampleDashboard = () => {
   };
   return (
     <>
-      <ContentHeader />
       <div>
         <Section title="Sample Calendar">
           <LmsCalendar height="500px" viewHoliday={true} />
