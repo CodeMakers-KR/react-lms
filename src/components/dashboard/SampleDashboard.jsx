@@ -16,6 +16,8 @@ import { title } from "../../utils/window.js";
 import { LmsCalendar } from "../ui/LmsCalendar.jsx";
 import { ContentHeader } from "../header/ContentHeader.jsx";
 import { Section } from "../Section.jsx";
+import { IconButton } from "../ui/input/IconButton.jsx";
+import { icons } from "../ui/input/icons.js";
 
 const SampleDashboard = () => {
   title("DashBoard!");
@@ -69,6 +71,65 @@ const SampleDashboard = () => {
               },
             ]}
           />
+        </Section>
+
+        <Section title="Sample Buttons">
+          <IconButton color="#666" icon={icons.add}>
+            추가
+          </IconButton>
+          <IconButton color="#666" icon={icons.edit}>
+            수정
+          </IconButton>
+          <IconButton color="#666" icon={icons.close}>
+            닫기
+          </IconButton>
+          <IconButton color="#666" icon={icons.setting}>
+            설정
+          </IconButton>
+          <IconButton color="#666" icon={icons.fullStar}>
+            즐겨찾기(완료)
+          </IconButton>
+          <IconButton color="#666" icon={icons.star}>
+            즐겨찾기(미완료)
+          </IconButton>
+          <IconButton color="#666" icon={icons.login}>
+            로그인
+          </IconButton>
+          <IconButton color="#666" icon={icons.logout}>
+            로그아웃
+          </IconButton>
+          <IconButton color="#666" icon={icons.download}>
+            다운로드
+          </IconButton>
+          <IconButton color="#666" icon={icons.downloadDone}>
+            다운로드 완료
+          </IconButton>
+          <IconButton
+            color="#666"
+            alwaysIconRotate={true}
+            icon={icons.progress}
+          >
+            진행중
+          </IconButton>
+          <IconButton color="#666" icon={icons.delete}>
+            삭제
+          </IconButton>
+          <IconButton color="#666" hoverIconRotate={true} icon={icons.refresh}>
+            새로고침
+          </IconButton>
+          <IconButton color="#666" icon={icons.sort}>
+            정렬
+          </IconButton>
+          <IconButton
+            color="#666"
+            backgroundColor="transparent"
+            icon={icons.add}
+          >
+            추가
+          </IconButton>
+          <IconButton color="#666" icon={icons.add} />
+
+          <IconButton color="#666">아이콘 없는 버튼</IconButton>
         </Section>
 
         <Section title="Sample Modals">

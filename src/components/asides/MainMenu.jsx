@@ -2,6 +2,8 @@ import styles from "./MainMenu.module.css";
 
 import { useSelector } from "react-redux";
 import { FoldableList } from "../ui/List";
+import { IconButton } from "../ui/input/IconButton";
+import { icons } from "../ui/input/icons";
 
 export const MainMenuList = () => {
   const headers = useSelector((store) => store.header);
@@ -32,7 +34,9 @@ export const MainMenuList = () => {
         <div>
           <div>관리자</div>
           <div>
-            <button>로그아웃</button>
+            <IconButton color="#666" icon={icons.logout}>
+              로그아웃
+            </IconButton>
           </div>
         </div>
       </div>

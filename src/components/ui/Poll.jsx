@@ -1,7 +1,7 @@
 import {
   Checkbox,
+  NativeSelect,
   Radio,
-  Select,
   Textarea,
   TextField,
 } from "./input/Input.jsx";
@@ -110,6 +110,7 @@ export const PollItem = ({ item, max }) => {
 
   const changeHandler = (event) => {
     const target = event.target ?? event;
+    console.log(">", target);
     const dataset = target.dataset;
 
     if (type === "checkbox" || type === "radio") {
@@ -213,7 +214,7 @@ const PollAnswer = ({
           onChange={changeHandler}
         />
       ) : type === "select" ? (
-        <Select
+        <NativeSelect
           ref={ref}
           id={id}
           labelText={title}

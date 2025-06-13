@@ -1,6 +1,9 @@
 import { useImperativeHandle, useRef, useState } from "react";
 import styles from "./Input.module.css";
 import { Grid } from "../Grid";
+import { Icon } from "./IconButton";
+import { icons } from "./icons";
+import Select from "react-select";
 
 export const Checkbox = ({
   ref,
@@ -9,6 +12,7 @@ export const Checkbox = ({
   name,
   checked = false,
   value,
+  styleType = "checked",
   onChange = () => {},
   labelText,
 }) => {
@@ -37,9 +41,19 @@ export const Checkbox = ({
         checked={checked}
         onChange={onChange}
       />
-      <div className={styles.checkboxOver} onClick={clickHandler}>
-        <div className={styles.whiteCircle}></div>
-      </div>
+      {styleType === "checked" && (
+        <Icon
+          onClick={clickHandler}
+          iconSize={20}
+          iconColor="#666"
+          icon={inputRef.current?.checked ? icons.checked : icons.unchecked}
+        />
+      )}
+      {styleType === "onoff" && (
+        <div className={styles.checkboxOver} onClick={clickHandler}>
+          <div className={styles.whiteCircle}></div>
+        </div>
+      )}
     </div>
   );
 };
@@ -51,6 +65,7 @@ export const Radio = ({
   name,
   checked = false,
   value,
+  styleType = "checked",
   onChange = () => {},
   labelText,
 }) => {
@@ -79,9 +94,23 @@ export const Radio = ({
         checked={checked}
         onChange={onChange}
       />
-      <div className={styles.checkboxOver} onClick={clickHandler}>
-        <div className={styles.whiteCircle}></div>
-      </div>
+      {styleType === "checked" && (
+        <Icon
+          onClick={clickHandler}
+          iconSize={20}
+          iconColor="#666"
+          icon={
+            inputRef.current?.checked
+              ? icons.radioChecked
+              : icons.radioUnChecked
+          }
+        />
+      )}
+      {styleType === "onoff" && (
+        <div className={styles.checkboxOver} onClick={clickHandler}>
+          <div className={styles.whiteCircle}></div>
+        </div>
+      )}
     </div>
   );
 };
@@ -114,7 +143,8 @@ export const TextField = ({
     </>
   );
 };
-export const Select = ({
+
+export const NativeSelect = ({
   ref,
   id,
   className,
@@ -145,6 +175,30 @@ export const Select = ({
           </option>
         ))}
       </select>
+    </>
+  );
+};
+
+export const SelectBox = ({
+  ref,
+  id,
+  name,
+  onChange = () => {},
+  labelText,
+  options = [],
+}) => {
+  return (
+    <>
+      {labelText && <label htmlFor={id}>{labelText}</label>}
+      <Select
+        ref={ref}
+        id={id}
+        options={options}
+        data-id={id}
+        data-name={name}
+        data-input-type="select"
+        onChange={onChange}
+      />
     </>
   );
 };

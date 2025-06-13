@@ -8,7 +8,7 @@
 .mainContent {
   box-sizing: content-box;
   flex-grow: 1;
-  padding: 1rem;
+  padding: 2rem 1rem;
   overflow: auto;
   height: 100vh;
   width: 100%;
