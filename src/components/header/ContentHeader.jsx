@@ -37,6 +37,7 @@ export const ContentHeader = () => {
         <ul
           style={{
             display: "flex",
+            alignItems: "center",
             margin: 0,
             padding: 0,
             listStyle: "none",
@@ -64,7 +65,14 @@ export const ContentHeader = () => {
           </li>
           <li style={{ display: "inline-flex" }}>{paths[1].title}</li>
         </ul>
-        <h2 style={{ margin: "8px 0", display: "flex", gap: "1rem" }}>
+        <h2
+          style={{
+            margin: "8px 0",
+            display: "flex",
+            gap: "1rem",
+            alignItems: "center",
+          }}
+        >
           {paths[2].title}
           <Icon
             icon={isStar ? icons.fullStar : icons.star}

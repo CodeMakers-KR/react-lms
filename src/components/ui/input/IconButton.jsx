@@ -6,6 +6,7 @@ export const Icon = ({
   iconColor,
   iconStyle = {},
   icon,
+  disabled,
   onClick = () => {},
 }) => {
   return (
@@ -16,7 +17,7 @@ export const Icon = ({
       width={`${iconSize}px`}
       fill={iconColor}
       onClick={onClick}
-      style={iconStyle}
+      style={{ ...iconStyle, opacity: disabled ? 0.5 : 1 }}
     >
       <path d={icon} />
     </svg>
@@ -32,6 +33,7 @@ export const IconButton = ({
   hoverIconRotate = false,
   alwaysIconRotate = false,
   backgroundColor = "buttonface",
+  disabled = false,
   onClick = () => {},
 }) => {
   const [hover, setHover] = useState(false);
@@ -58,9 +60,10 @@ export const IconButton = ({
       onMouseEnter={hoverHandler}
       onMouseLeave={houtHandler}
       onClick={onClick}
+      disabled={disabled}
       style={{
         verticalAlign: "middle",
-        cursor: "pointer",
+        cursor: disabled ? "not-allowed" : "pointer",
         fontWeight: hover ? 800 : 400,
         display: "inline-flex",
         padding: icon ? "5px" : "7px",
@@ -77,6 +80,7 @@ export const IconButton = ({
           iconColor={iconColor}
           icon={icon}
           iconStyle={iconStyle}
+          disabled={disabled}
         />
       )}
       <span
@@ -85,6 +89,7 @@ export const IconButton = ({
           display: "inline-block",
           color,
           alignSelf: "center",
+          opacity: disabled ? 0.5 : 1,
         }}
       >
         {children}

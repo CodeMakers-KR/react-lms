@@ -24,6 +24,7 @@ const GuestProfile = () => {
         ref={loginRef}
         title="수강생 로그인"
         buttonText="취소"
+        buttonIcon={icons.close}
         appendButtons={[
           <IconButton
             key="append-button-login"
@@ -35,7 +36,7 @@ const GuestProfile = () => {
             Login
           </IconButton>,
         ]}
-        modalStyle={{ padding: "10px" }}
+        modalStyle={{ padding: "10px", width: "500px" }}
       >
         <Form>
           <TextField
@@ -43,7 +44,7 @@ const GuestProfile = () => {
             id="id"
             labelText="ID"
             placeholder="ID"
-            style={{ width: "500px", marginBottom: "0.625rem" }}
+            style={{ width: "100%", marginBottom: "0.625rem" }}
           />
           <TextField
             ref={loginPasswordRef}
@@ -51,7 +52,7 @@ const GuestProfile = () => {
             id="password"
             labelText="Password"
             placeholder="password"
-            style={{ width: "500px" }}
+            style={{ width: "100%" }}
           />
           <Error>아이디 또는 비밀번호가 일치하지 않습니다.</Error>
         </Form>
@@ -126,7 +127,7 @@ export const MainMenuList = () => {
       <div
         style={{
           textAlign: "center",
-          fontSize: "1.4rem",
+          fontSize: "1.15rem",
           marginBottom: "1rem",
         }}
       >

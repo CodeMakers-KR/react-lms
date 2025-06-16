@@ -6,6 +6,7 @@ const errorStyle = {
   fontSize: "0.8rem",
   padding: "0.4rem",
   display: "flex",
+  alignItems: "center",
 };
 export const Error = ({ children }) => {
   return (

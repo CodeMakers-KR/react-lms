@@ -50,6 +50,7 @@
   margin: 0;
   font-size: 1rem;
   padding-top: 2px;
+  font-weight: 400;
 }
 
 .foldableList > .foldableListItem > li > ul {

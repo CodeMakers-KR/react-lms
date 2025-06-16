@@ -31,7 +31,7 @@ export const headers = [
         subItems: [
           { id: 2001001, title: "수강생 목록", to: "/login" },
           { id: 2001002, title: "근태 관리", to: "/login" },
-          { id: 2001002, title: "수강생 일정 관리", to: "/login" },
+          { id: 2001003, title: "수강생 일정 관리", to: "/login" },
         ],
       },
       {

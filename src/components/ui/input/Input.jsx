@@ -116,6 +116,7 @@ export const Radio = ({
 };
 export const TextField = ({
   ref,
+  matchRef,
   type = "text",
   id,
   className,
@@ -123,9 +124,16 @@ export const TextField = ({
   placeholder,
   value,
   onChange = () => {},
+  onMatch = () => {},
   labelText,
   style = {},
 }) => {
+  const matchHandler = () => {
+    if (matchRef?.current) {
+      onMatch(ref.current.value === matchRef.current.value);
+    }
+  };
+
   return (
     <span style={{ position: "relative" }}>
       <input
@@ -140,6 +148,7 @@ export const TextField = ({
         name={`${name}`}
         placeholder={placeholder}
         value={value}
+        onInput={matchHandler}
         onChange={onChange}
       />
       {labelText && (
