@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.jsx";
 import Dashboard from "../components/dashboard/Dashboard.jsx";
 import SampleDashboard from "../components/dashboard/SampleDashboard.jsx";
 import { Install } from "../components/install/Install.jsx";
+import { MainMenuList } from "../components/asides/MainMenu.jsx";
 
 const MainRouterProvider = () => {
   const router = createBrowserRouter([
@@ -11,8 +12,14 @@ const MainRouterProvider = () => {
       path: "/",
       element: <MainLayout />,
       children: [
-        { index: true, element: <Dashboard /> },
-        { path: "sample", element: <SampleDashboard /> },
+        {
+          index: true,
+          element: <Dashboard />,
+        },
+        {
+          path: "sample",
+          element: <SampleDashboard />,
+        },
       ],
     },
   ]);

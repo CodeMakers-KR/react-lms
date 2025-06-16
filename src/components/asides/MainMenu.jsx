@@ -127,7 +127,7 @@ export const MainMenuList = () => {
       <div
         style={{
           textAlign: "center",
-          fontSize: "1.15rem",
+          fontSize: "1.45rem",
           marginBottom: "1rem",
         }}
       >

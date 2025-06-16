@@ -27,6 +27,7 @@
 
 .checkbox {
   display: inline-flex;
+  align-items: center;
 }
 
 .checkbox > input[type="checkbox"] {
@@ -59,6 +60,7 @@
 
 .radio {
   display: inline-flex;
+  align-items: center;
 }
 
 .radio > input[type="radio"] {
