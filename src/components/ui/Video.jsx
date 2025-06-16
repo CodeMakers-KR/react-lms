@@ -167,7 +167,14 @@ export const Video = ({
         </div>
         <ul className={styles.tags}>
           {tags.map((item) => (
-            <li key={item}>{item}</li>
+            <li
+              key={item}
+              style={{
+                fontFamily: `"Roboto Mono", "Noto Sans KR", sans-serif`,
+              }}
+            >
+              {item}
+            </li>
           ))}
         </ul>
       </div>

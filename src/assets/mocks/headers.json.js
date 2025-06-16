@@ -28,7 +28,11 @@ export const headers = [
       {
         id: 2001,
         title: "수강생 관리",
-        subItems: [{ id: 2001001, title: "수강생 목록", to: "/login" }],
+        subItems: [
+          { id: 2001001, title: "수강생 목록", to: "/login" },
+          { id: 2001002, title: "근태 관리", to: "/login" },
+          { id: 2001002, title: "수강생 일정 관리", to: "/login" },
+        ],
       },
       {
         id: 2002,
@@ -41,7 +45,10 @@ export const headers = [
         subItems: [
           { id: 2003001, title: "메뉴 관리", to: "/login" },
           { id: 2003002, title: "휴일 관리", to: "/pwd" },
-          { id: 2003003, title: "시스템 관리", to: "/login-otp" },
+          { id: 2003003, title: "환경변수 관리", to: "/login-otp" },
+          { id: 2003004, title: "권한 관리", to: "/login-otp" },
+          { id: 2003005, title: "코드 관리", to: "/login-otp" },
+          { id: 2003006, title: "배치 관리", to: "/login-otp" },
         ],
       },
     ],

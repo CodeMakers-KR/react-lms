@@ -12,7 +12,7 @@ export const Alert = ({
   draggable = false,
   children,
   buttonText = "OK",
-  buttonIcon = icons.close,
+  buttonIcon = icons.ok,
   modalStyle = {},
   appendButtons = [],
   onBeforeLoad = () => {},

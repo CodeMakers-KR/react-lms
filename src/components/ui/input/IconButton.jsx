@@ -81,7 +81,7 @@ export const IconButton = ({
       )}
       <span
         style={{
-          fontFamily: `"Noto Sans KR", sans-serif`,
+          fontFamily: `"Roboto Mono", "Noto Sans KR", sans-serif`,
           display: "inline-block",
           color,
           alignSelf: "center",
