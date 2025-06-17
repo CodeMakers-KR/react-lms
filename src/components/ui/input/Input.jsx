@@ -1,7 +1,7 @@
 import { useImperativeHandle, useRef, useState } from "react";
 import styles from "./Input.module.css";
 import { Grid } from "../Grid";
-import { Icon } from "./IconButton";
+import { Icon, IconButton } from "./IconButton";
 import { icons } from "./icons";
 import Select from "react-select";
 
@@ -220,7 +220,7 @@ export const SelectBox = ({
 };
 
 const mediaType = {
-  img: ["jpg", "jpeg", "png", "gif", "webp"],
+  img: ["jpg", "jpeg", "png", "gif", "webp", "svg"],
   audio: ["mp3"],
   video: ["mp4"],
   other: [],
@@ -235,6 +235,7 @@ export const FileField = ({
   multiple = false,
   placeholder,
   value,
+  style = {},
   onChange = () => {},
   labelText,
 }) => {
@@ -278,13 +279,22 @@ export const FileField = ({
     });
   };
   return (
-    <>
-      {labelText && <label htmlFor={id}>{labelText}</label>}
+    <div
+      style={{
+        ...style,
+        position: "relative",
+        minHeight: "50px",
+        paddingTop: "3rem",
+        border: "1px solid #ddd",
+        borderRadius: "7px",
+      }}
+    >
       <input
         type="file"
         hidden={preview}
+        style={{ display: preview ? "none" : "block" }}
         multiple={multiple}
-        className={`${className} ${styles.file}`}
+        className={`${className} ${styles.file} ${styles.text}`}
         id={id}
         data-id={id}
         data-name={name}
@@ -295,15 +305,25 @@ export const FileField = ({
         value={value}
         onChange={changeHandler}
       />
-      <Button
-        text="+"
-        onClick={() => {
-          ref.current.click();
-        }}
-      />
-      {file.length > 0 && (
+      {labelText && (
+        <label className={styles.text} htmlFor={id}>
+          {labelText}
+          <div style={{ display: "inline-block", marginLeft: "10px" }}>
+            <IconButton
+              icon={icons.add}
+              onClick={() => {
+                ref.current.click();
+              }}
+            >
+              추가
+            </IconButton>
+          </div>
+        </label>
+      )}
+
+      {preview && file.length > 0 && (
         <Grid
-          style={{ display: "inline-grid" }}
+          style={{ display: "grid", marginTop: "0.625rem", padding: "10px" }}
           columnStyle="1fr 150px minmax(5rem, auto)"
           header={[
             { id: "col-1", title: "파일명" },
@@ -328,7 +348,7 @@ export const FileField = ({
           ])}
         />
       )}
-    </>
+    </div>
   );
 };
 

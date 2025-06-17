@@ -1,14 +1,19 @@
 import styles from "./MainMenu.module.css";
-import { userAction } from "../../store/slices/userSlice";
+import { userAction, userThunkAction } from "../../store/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FoldableList } from "../ui/List";
 import { IconButton } from "../ui/input/IconButton";
 import { icons } from "../ui/input/icons";
 import { Alert, Confirm } from "../ui/Modal";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { TextField } from "../ui/input/Input";
 import { Form } from "../ui/form/Form";
 import { Error } from "../ui/form/Error";
+import {
+  fetchLoginUserAccount,
+  fetchLoginUserData,
+} from "../../https/user/account/userAccount";
+import { BASE_FETCH_URL, BASE_URL } from "../../const/constants";
 
 const GuestProfile = () => {
   const dispatcher = useDispatch();
@@ -18,6 +23,11 @@ const GuestProfile = () => {
   const loginClickHandler = () => {
     loginRef.current.open();
   };
+
+  dispatcher(userAction.autoLogin());
+  dispatcher(userThunkAction.loadUserInfo());
+
+  const [loginErrorMessage, setLoginErrorMessage] = useState();
   return (
     <div style={{ textAlign: "center" }}>
       <Alert
@@ -29,8 +39,22 @@ const GuestProfile = () => {
           <IconButton
             key="append-button-login"
             icon={icons.login}
-            onClick={() => {
-              dispatcher(userAction.login());
+            onClick={async () => {
+              const token = await fetchLoginUserAccount(
+                loginIdRef.current.value,
+                loginPasswordRef.current.value
+              );
+              if (token.status === 200) {
+                dispatcher(userAction.login(token.data));
+
+                const userInfo = await fetchLoginUserData();
+                console.log(userInfo);
+                if (userInfo.status === 200) {
+                  dispatcher(userAction.loadUserInfo(userInfo.data));
+                }
+              } else {
+                setLoginErrorMessage(token.data);
+              }
             }}
           >
             Login
@@ -54,7 +78,7 @@ const GuestProfile = () => {
             placeholder="password"
             style={{ width: "100%" }}
           />
-          <Error>아이디 또는 비밀번호가 일치하지 않습니다.</Error>
+          {loginErrorMessage && <Error>{loginErrorMessage}</Error>}
         </Form>
       </Alert>
       <div>
@@ -72,9 +96,8 @@ const GuestProfile = () => {
   );
 };
 
-const MainProfile = () => {
+const MainProfile = ({ name, id }) => {
   const dispatcher = useDispatch();
-
   const confirmRef = useRef();
   return (
     <div style={{ textAlign: "center" }}>
@@ -90,8 +113,9 @@ const MainProfile = () => {
       </Confirm>
       <div style={{ marginBottom: "0.7rem" }}>
         <img
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMTAzMDhfMTky/MDAxNjE1MTg3MDkzMzQ5.LF_wRgeqp0svkxCRWSCxh0GLmSTPPXoY7Y6CpNzY1icg.mKeYJaQmfYcAFLZL_TBpxZZ2PQkYFfju_7hbj5rHnEYg.PNG.aksen244/30fa75cf-0027-4396-8b32-e1d362bc7c57.png?type=w800"
+          src={`${BASE_URL}/anonymous/user/account/profile/${id}`}
           style={{
+            objectFit: "cover",
             display: "inline-block",
             width: "100px",
             height: "100px",
@@ -102,7 +126,7 @@ const MainProfile = () => {
         />
       </div>
       <div>
-        <div>관리자</div>
+        <div>{name ?? id}</div>
         <div>
           <IconButton
             color="#666"
@@ -122,6 +146,7 @@ const MainProfile = () => {
 export const MainMenuList = () => {
   const headers = useSelector((store) => store.header);
   const user = useSelector((store) => store.user);
+  console.log(user);
   return (
     <div className={styles.mainMenu}>
       <div
@@ -133,7 +158,9 @@ export const MainMenuList = () => {
       >
         <span style={{ fontWeight: 100 }}>Learning</span> <strong>Works</strong>
       </div>
-      {user.login && <MainProfile />}
+      {user.login && (
+        <MainProfile name={user.userInfo?.name} id={user.userInfo?.id} />
+      )}
       {!user.login && <GuestProfile />}
 
       <div

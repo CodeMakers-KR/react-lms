@@ -14,3 +14,27 @@ export const fetchLoginUserAccount = async (id, pwd) => {
   const result = await response.json();
   return result;
 };
+
+export const fetchLoginUserData = async () => {
+  const response = await fetch(`${BASE_FETCH_URL}/user/account`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("__token__"),
+    },
+  });
+  const result = await response.json();
+  return result;
+};
+
+export const fetchStudents = async () => {
+  const response = await fetch(`${BASE_FETCH_URL}/user/accounts`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("__token__"),
+    },
+  });
+  const result = await response.json();
+  return result;
+};

@@ -8,15 +8,17 @@ export const fetchCountAdminAccount = async (id) => {
   return settingsResult;
 };
 
-export const fetchCreateAdminAccount = async (id, pwd) => {
+export const fetchCreateAdminAccount = async (id, pwd, profile) => {
+  const formData = new FormData();
+  formData.append("id", id);
+  formData.append("pwd", pwd);
+  formData.append("profileImage", profile[0]);
+
   const settingsResponse = await fetch(
     `${BASE_FETCH_URL}/anonymous/admin/account`,
     {
       method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id, pwd }),
+      body: formData,
     }
   );
   const settingsResult = await settingsResponse.json();

@@ -4,6 +4,7 @@ import Dashboard from "../components/dashboard/Dashboard.jsx";
 import SampleDashboard from "../components/dashboard/SampleDashboard.jsx";
 import { Install } from "../components/install/Install.jsx";
 import { MainMenuList } from "../components/asides/MainMenu.jsx";
+import { StudentList } from "../components/contents/students/StudentList.jsx";
 
 const MainRouterProvider = () => {
   const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const MainRouterProvider = () => {
           path: "sample",
           element: <SampleDashboard />,
         },
+        { path: "students", element: <StudentList /> },
       ],
     },
   ]);

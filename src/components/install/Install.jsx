@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Form } from "../ui/form/Form";
-import { TextField } from "../ui/input/Input";
+import { FileField, TextField } from "../ui/input/Input";
 import { Icon, IconButton } from "../ui/input/IconButton";
 import { icons } from "../ui/input/icons";
 import {
@@ -22,6 +22,7 @@ export const Install = () => {
   const idRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const profileRef = useRef();
 
   const [isMatch, setIsMatch] = useState();
   const [errorMessage, setErrorMessage] = useState();
@@ -29,7 +30,8 @@ export const Install = () => {
   const saveHandler = async () => {
     const { status, data } = await fetchCreateAdminAccount(
       idRef.current.value,
-      passwordRef.current.value
+      passwordRef.current.value,
+      profileRef.current.files
     );
     setErrorMessage(status === 200 ? undefined : data);
 
@@ -92,6 +94,14 @@ export const Install = () => {
               {errorMessage}
             </div>
           )}
+
+          <FileField
+            ref={profileRef}
+            id="profileImage"
+            labelText="프로필 이미지"
+            preview={true}
+            style={{ marginBottom: "10px" }}
+          />
 
           <TextField
             ref={passwordRef}

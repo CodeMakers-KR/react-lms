@@ -26,7 +26,6 @@ export const Grid = ({
   );
   const checkboxRef = useRef(Array.from({ length: contentLength }));
   const allCheckRef = useRef();
-
   useImperativeHandle(ref, () => ({
     getChecked() {
       if (checkable && checkValue) {

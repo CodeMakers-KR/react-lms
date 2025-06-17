@@ -34,6 +34,7 @@ export const IconButton = ({
   alwaysIconRotate = false,
   backgroundColor = "buttonface",
   disabled = false,
+  style = {},
   onClick = () => {},
 }) => {
   const [hover, setHover] = useState(false);
@@ -72,6 +73,7 @@ export const IconButton = ({
         border: "0",
         borderRadius: "5px",
         backgroundColor,
+        ...style,
       }}
     >
       {icon && (
